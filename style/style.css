@@ -1,0 +1,9 @@
+/* #draw {
+  display: inline-block;
+  width: 70%;
+} */
+
+.setting-container {
+  width: 25%;
+  display: inline-block;
+}
