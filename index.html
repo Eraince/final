@@ -4,25 +4,69 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Hamburgler Menu</title>
+  <title>How are YOU?</title>
   <link rel="stylesheet" href="style/style.css">
-  <link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,500,700,900|Muli:300,400,700" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/3.0.2/fullpage.css" />
 
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/3.0.2/fullpage.extensions.min.js"></script>
 </head>
 
 <body>
 
-  <div class="setting-container">
-    <input type="color" id="colorPicker" name="color" value="#e66465" />
-    <label for="head">Head</label>
-    <button id="clear" onclick="clearCanvas()">Reset</button>
-    <button id="save" onclick="saveCanvas()">Save</button>
+
+  <div id="fullpage">
+    <div class="section" id="sketch-holder">
+      <canvas id="sketch-holder"></canvas>
+
+    </div>
+    <div class="section">
+      <h1>"How are you?"</h1>
+
+    </div>
+    <div class="section">
+
+      Take a Breath!
+
+    </div>
+    <div class="section">
+      Take a Breath!
+      <br> Really think about it.
+      <br>
+
+    </div>
+    <div class="section">
+      <div class="setting-container">
+        <input type="color" id="colorPicker" name="color" value="#e66465" />
+        <label for="head">Head</label>
+        <button id="clearCanvas" onclick="clearCanvas()">Reset</button>
+        <button id="saveImage" onclick="saveImage()">Save</button>
+      </div>
+      <canvas id="draw"></canvas>
+    </div>
   </div>
 
-  <canvas id="draw"></canvas>
+
 
 
   <script src="js/scripts.js"></script>
+
+
+  <script type="text/javascript">
+    var fullPage = new fullpage("#fullpage", {
+      //options herexw
+      autoScrolling: true,
+      scrollHorizontally: true,
+      licenseKey: "OPEN-SOURCE-GPLV3-LICENSE",
+      // parallax: true,
+      // sectionsColor: ["yellow", "orange", "#C0C0C0", "#ADD8E6"]
+    });
+    // fullpage_api.setAllowScrolling(true);
+
+
+
+  </script>
+
+
 
 </body>
 
