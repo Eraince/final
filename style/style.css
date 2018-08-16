@@ -2,6 +2,14 @@
   display: inline-block;
   width: 70%;
 } */
+body {
+  text-align: center;
+}
+
+#greeting {
+  top: 10%;
+  right: 10%;
+}
 
 .setting-container {
   width: 25%;
@@ -10,10 +18,31 @@
 
 #hello {
   position: fixed;
-  bottom: 0;
-  right: 0;
-  height: 100vh;
-  width: 100vw;
+  top: 35%;
+  left: 35%;
+  height: 30vh;
+  width: 30vw;
+  border: none;
+  background-color: rgba(255, 255, 255);
+}
+#good {
+  list-style: none;
+}
 
-  background-color: rgba(201, 76, 76, 0.1);
+#good li {
+  display: inline;
+}
+
+#blink_me {
+  animation: blinker 0.5s linear infinite;
+}
+
+@keyframes blinker {
+  50% {
+    opacity: 0;
+  }
+}
+
+#secret {
+  display: none;
 }

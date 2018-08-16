@@ -7,9 +7,10 @@ var snapchatIcon;
 $(document).ready(function() {
   $("#hello").click(function(e) {
     e.preventDefault();
+    $("#hello").hide();
     setTimeout(function() {
       window.location.href = "index.html";
-    }, 1000);
+    }, 1200);
   });
 });
 
@@ -51,8 +52,8 @@ function draw() {
 function Logo(icon) {
   this.x = random(0, windowWidth);
   this.y = random(0, windowHeight);
-  this.speedx = random(8, 15);
-  this.speedy = random(9, 20);
+  this.speedx = random(5, 8);
+  this.speedy = random(6, 9);
   this.img = icon;
   this.size = 50;
   this.dead = false;

@@ -5,6 +5,8 @@ var preX = 0;
 var preY = 0;
 var curX = 0;
 var curY = 0;
+var count = 0;
+var lists = document.querySelectorAll("ul li");
 
 // get canvas 2D context and set it to the correct size
 var ctx = canvas.getContext("2d");
@@ -12,8 +14,8 @@ resize();
 
 // resize canvas when window is resized
 function resize() {
-  ctx.canvas.width = window.innerWidth;
-  ctx.canvas.height = window.innerHeight;
+  ctx.canvas.width = window.innerWidth - 50;
+  ctx.canvas.height = window.innerHeight - 50;
 }
 
 canvas.addEventListener("mousemove", draw); // only draw when pressed is true
@@ -59,7 +61,7 @@ function draw(event) {
 
   ctx.beginPath(); // begin the drawing path
 
-  ctx.lineWidth = 20; // width of line
+  ctx.lineWidth = 10; // width of line
   ctx.lineCap = "round"; // rounded end cap
   ctx.strokeStyle = lineColor; // hex color of line
   console.log(lineColor);
@@ -74,19 +76,18 @@ function setPosition(event) {
   preX = curX;
   preY = curY;
   curX = getCurrentXPosition(event);
-  console.log(curX);
   curY = getCurrentYPosition(event);
-  console.log(curY);
 }
 
 function changeColor() {
   lineColor = document.querySelector("input").value;
 }
 
-function saveImage() {
-  var dataURL = canvas.toDataURL("image/png");
-  document.write('<img src="' + dataURL + '"/>');
-}
+// function saveImage() {
+//   var dataURL = canvas.toDataURL("image/png");
+//   console.log(dataURL);
+//   document.write('<img src="' + dataURL + '"/>');
+// }
 
 function clearCanvas() {
   ctx.clearRect(0, 0, canvas.width, canvas.height);
@@ -98,3 +99,14 @@ function faceSetup() {
   ctx.arc(95, 50, 40, 0, 2 * Math.PI);
   ctx.stroke();
 }
+
+document.addEventListener("keydown", event => {
+  const keyName = event.key;
+  if (keyName == "Backspace") {
+    lists[3 - count].style.display = "none";
+    count++;
+  }
+  if (count >= 4) {
+    document.querySelector("#secret").style.display = "block";
+  }
+});

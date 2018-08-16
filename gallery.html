@@ -1,0 +1,72 @@
+<html lang="en" dir="ltr">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>How are YOU?</title>
+    <link rel="stylesheet" href="style/style.css">
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+        crossorigin="anonymous"></script>
+
+    <script src="https://www.gstatic.com/firebasejs/5.3.1/firebase.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/4.2.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/4.2.0/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/4.2.0/firebase-database.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/4.2.0/firebase-storage.js"></script>
+    <script>
+        // Initialize Firebase
+        var config = {
+            apiKey: "AIzaSyB8eky4hr0yfKp91RwV6OvqcgxEXd84uUg",
+            authDomain: "how-are-you-bootcamp.firebaseapp.com",
+            databaseURL: "https://how-are-you-bootcamp.firebaseio.com",
+            projectId: "how-are-you-bootcamp",
+            storageBucket: "how-are-you-bootcamp.appspot.com",
+            messagingSenderId: "698505157182"
+        };
+        firebase.initializeApp(config);
+    </script>
+    <script>
+        var counter = 0;
+        var auth = firebase.auth();
+        var storageRef = firebase.storage().ref();
+
+
+        $(document).ready(function () {
+            for (var i = 0; i < 10; i++) {
+
+                storageRef.child("images/" + i).getDownloadURL().then(function (url) {
+                    var myImage = $('<img/>');
+                    myImage.attr('width', 300);
+                    myImage.attr('src', url);
+                    myImage.attr('display', 'inline-block');
+
+
+                    $("#gallery").append(myImage);
+
+                })
+            }
+
+        });
+
+    </script>
+    <!-- firebase  -->
+
+</head>
+
+<body>
+
+
+    <div id="gallery">
+
+
+    </div>
+    <a href="index.html">Again</a>
+
+
+
+
+
+
+</body>
+
+</html>
